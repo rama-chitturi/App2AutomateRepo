@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   
+  
+    <style>
+
+        body {
+            background-color:lightgray;
+        }
+        .image {
+            border-bottom-color:black;
+            width:250px;
+            height:250px;
+            border-bottom-right-radius:50px;
+
+        }
+        .imageUnder {
+              width:250px;
+            height:250px;
+            border-bottom-right-radius:70px;
+
+        }
+
+            .imageUnder:hover {
+            cursor:not-allowed;
+            }
+
+            .image:hover {
+            cursor:pointer;
+          
+            }
+        .fa {
+        font-size:20px;
+       
+        }
+            .fa:hover {
+                color:#0c7e82;
+            }
+
+      
+
+       .glow {
+
+           position:absolute;
+        left:10%;
+            top:5%;
+            width: 90%;
+  height:5%;
+background-color:black;
+  font-size: large;
+  color: #fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+ .glowdiv {
+
+             position:absolute;
+            right:15%;
+            bottom:17%;
+             background-color: black;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 10%;
+  height:8%;
+
+   border-bottom-left-radius:10px;
+              border-bottom-right-radius:10px;
+              border-top-left-radius:10px;
+              border-top-right-radius:10px;
+              
+
+    
+              
+        }
+
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #3209e8, 0 0 40px #3209e8, 0 0 50px #3209e8, 0 0 60px #3209e8, 0 0 70px #3209e8;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #0c7e82, 0 0 40px #ed0744, 0 0 50px #ed0744, 0 0 60px #ed0744, 0 0 70px #ed0744, 0 0 80px #ed0744;
+  }
+}
+
+        .pointerCls {
+             position:absolute;
+            right:30%;
+            bottom:22%;
+            width: 5%;
+  height:6%;
+ animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;  
+  animation-delay:1s;
+        }
+
+      @keyframes example {
+ 
+  70% { right:29%}
+  
+}
+    </style>
+</head>
+<body>
+
+    <div  style="position: absolute; left: 5%; top: 40px;"> 
+    <img class="image" src="../images/html_tag.png" alt="Go to Html elements page"  onclick="location.href = 'WebPageElements1.html';" />
+   <i class="fa fa-question-circle" title="Mostly used WebElements" style="position: absolute; top: 110%; left: 50%;" > </i>
+  
+</div>
+
+    <div  style="position: absolute; left: 28%; top: 40px;"> 
+    <img class="image" src="../images/canvas.jpg"  alt= "Go to Canvas" onclick="location.href = 'Canvas.html';" />
+       <i class="fa fa-question-circle" title="Canavas board " style="position: absolute; top: 110%; left: 50%;" > </i>
+  </div>
+    <div style="position: absolute; left: 50%; top: 36px;"> 
+    <img class="imageUnder" src="../images/work_in_progress.png" alt="Work in progess" onclick="location.href = '#';" />
+   <i class="fa fa-question-circle" title="Not yet Completed" style="position: absolute; top: 110%; left: 50%;" > </i>
+  
+</div>
+    <div style="position: absolute; left: 74%; top: 36px;"> 
+    <img class="imageUnder" src="../images/work_in_progress.png" alt="Work in progess"  onclick="location.href = '#';" />
+   <i class="fa fa-question-circle" title="Not Yet completed" style="position: absolute; top: 110%; left: 50%;" > </i>
+  
+</div>
+    <img class="pointerCls" src="../images/pointer.png" alt="Note pointer" />
+    <div class="glowdiv">
+<span class="glow">Hover to circled <br />  question icon  <i class="fa fa-question-circle"></i><br /> for Info.</span>
+ </div>
+</body>
+</html>

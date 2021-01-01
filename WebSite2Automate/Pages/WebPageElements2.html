@@ -1,0 +1,255 @@
+﻿<!--<!DOCTYPE html>-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+     <link rel="stylesheet" href="../StyleSheets/WebPage2_StyleSheet.css"/>
+   
+
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+            return false;
+        }
+
+        function drag(ev) {
+            var style = window.getComputedStyle(event.target, null);
+            var str = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY) + ',' + event.target.id;
+            event.dataTransfer.setData("Text", str);
+        }
+
+        function drop(ev) {
+            var offset = event.dataTransfer.getData("Text").split(',');
+            var dm = document.getElementById(offset[2]);
+            dm.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
+            dm.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
+            event.preventDefault();
+            return false;
+        }
+
+        function searchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function modal()
+            {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            if (btn.click = true)
+            {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+        function myFunction(x) {
+            x.classList.toggle("fa-thumbs-down");
+           
+        }
+        function alertMethod()
+        {
+          
+            var txt;
+            if (confirm("Alert Message!")) {
+                txt = "You Selected OK!";
+            } else {
+                txt = "You Selected Cancel!";
+            }
+            document.getElementById("ALertText").innerHTML = txt;
+
+        }
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+        /* accodion script*/
+        function accordion()
+        {
+           
+        }
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++)
+        {
+            if (acc[i].addEventListener("click") = true) {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                }
+                else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            };
+        }
+</script>
+</head>
+<body>
+
+  <div class="back-button" >
+ <img onclick="location.href='WebPageElements1.html';" src="../images/backButton.png"/>
+   </div>   
+          
+    <div>
+<h3 style="position:absolute;top:12%; left:1%;">Hover side nav buttons</h3>    
+<div id="mySidenav" class="sidenav">
+  <a href="AboutApp.html" id="about">About This App</a>
+  <a href="https://github.com/rama-chitturi/MySolutionHub" id="blog">My Code Blog</a>
+  <a href="https://github.com/rama-chitturi/WebApplication" id="projects">My Project Repo</a>
+  <a href="https://www.linkedin.com/in/rama-chitturi/" id="contact">My Contact</a>
+</div>
+     <i class="fa fa-question-circle" title="To Automate: All Side Hover menu Items Navigations" style="position: absolute; top: 15%; left: 16%;" > </i>
+ </div>  
+     
+<div>
+<h3 style="position:absolute;top:20%; left:10%;" >Click to open Modal</h3>
+ <button id="myBtn" onclick="modal()" style="position:absolute;top:30%; left:12%; width:120px; height:40px;">Open Modal</button>
+ <i class="fa fa-question-circle" title="To Automate: Modal open and close(By clicking on X and outside of modal)" style="position: absolute; top: 23%; left: 23%;" > </i>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+       <p><br />Hello! Click on X or anywhere outside of modal to close. </p>
+  </div>
+</div>
+
+    <div>
+        <h3 style="position:absolute;top:36%; left:10%;" >Click to open Alert</h3>
+        <button type="button" onclick="alertMethod()" style="position:absolute;top:45%;left:12%; width:130px;height:40px;">Alert Message</button>
+    <p id="ALertText" style="position:absolute;top:50%; left:10%;"></p>
+        <i class="fa fa-question-circle" title="To Automate: Alert Ok and Cancel functionality" style="position: absolute; top: 39%; left: 23%;" > </i>
+    </div>
+<div>
+    <h3 style="position:absolute;top:20%; left:30%;" >Hover to flip the card</h3>
+ <i class="fa fa-question-circle" title="To Automate: Card flipping and get Screenshot" style="position: absolute; top: 23%; left: 45%;" > </i>
+    <div class="flip-card" style="position:absolute; top:30%;left:27%; width:300px;height:200px;" >
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1>Flip the card</h1>
+        
+    </div>
+    <div class="flip-card-back">
+       <img src="../images/pikachu.jpg" alt="Avatar" style=" width:300px;height:160px;"/>
+      <p>Hai! from Pikachuuuu :) </p> 
+    
+    </div>
+  </div>
+</div>
+</div>
+
+    <div>
+    <div style="position:absolute; top:20%;left:55%; ">
+        <h3>Is everything working good?</h3>
+         <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x"></i>
+         
+    </div>
+         <i class="fa fa-question-circle" title="To Automate: Thumb Up/Down functionality" style="position: absolute; top: 23%; left: 74%;" > </i>
+        </div>
+    <div>
+        <div style="position:absolute; top:40%;left:55%; ">   
+            <h3>Is everything looking good?</h3> 
+        <label class="switch">
+  <input type="checkbox"/>
+  <span class="slider round"></span>
+</label>  
+    </div>
+    <i class="fa fa-question-circle" title="To Automate: Slider Switch" style="position: absolute; top: 43%; left: 74%;" > </i>      
+</div>
+ 
+<div>
+<button class="open-button" onclick="openForm()" style="position:absolute;" >Chat</button>
+
+<div class="chat-popup" id="myForm">
+  <form action="UserChat.html" class="form-container">
+    <h2>Chat</h2>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" ></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+
+</div>
+ <i class="fa fa-question-circle" title="To Automate: ChatBox fucntionality" style="position: absolute; top: 13%; right:3%;" > </i>   
+    </div>
+    
+<div>
+ <h3 style="position:absolute;top:60%; left:2%;" >Search bar</h3>
+  <i class="fa fa-question-circle" title="To Automate: Search functionality among Table data" style="position: absolute; top: 63%; left:10%;" > </i> 
+<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for Testing Type" title="Type in a name" style="position:absolute;top:68%; left:5%; height:5%; border-color:grey; border-width:2px"/>
+
+<table id="myTable" style="position:absolute;top:75%; left:10%;" >
+  <tr>
+    <th>Testing Type</th>
+    <th>Tool</th>
+    <th>Latest version</th>
+  </tr>
+  <tr>
+    <td>Web App Automation Testing</td>
+    <td>Selenium</td>
+    <td>4.0.0 alpha</td>
+  </tr>
+  <tr>
+    <td>Mobile App Automation Testing</td>
+    <td>Appium</td>
+    <td>7.4.1</td>
+  </tr>
+  <tr>
+    <td>Performance Testing</td>
+    <td>JMeter</td>
+    <td>4.2</td>
+  </tr>
+     <tr>
+    <td>API Automation Testing</td>
+    <td>Postman</td>
+    <td>v7.27.0</td>
+  </tr>
+ 
+ </table>
+</div>
+ 
+ </body>
+</html>

@@ -1,0 +1,201 @@
+﻿<html>
+<head>
+
+       <style>
+        
+body {
+    background-color:lightgray;
+}
+
+      .colorClsRow {
+          position:absolute;
+          width:13px;
+          height:13px;
+         }
+        .colorClsRow:hover, type {
+            cursor:pointer;
+        }
+      
+    </style>
+    <script type="text/javascript">
+        var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+        var x = "black",
+            y = 2;
+
+        function init() {
+            canvas = document.getElementById('can');
+            ctx = canvas.getContext("2d");
+            w = canvas.width;
+            h = canvas.height;
+
+            canvas.addEventListener("mousemove", function (e) {
+                findxy('move', e)
+            }, false);
+            canvas.addEventListener("mousedown", function (e) {
+                findxy('down', e)
+            }, false);
+            canvas.addEventListener("mouseup", function (e) {
+                findxy('up', e)
+            }, false);
+            canvas.addEventListener("mouseout", function (e) {
+                findxy('out', e)
+            }, false);
+        }
+
+        function color(obj) {
+            switch (obj.id) {
+
+
+                case "#7B241C":
+                    x = "#7B241C";
+                    break;
+
+                case "#CA6F1E":
+                    x = "#CA6F1E";
+                    break;
+
+                case "#884EA0":
+                    x = "#884EA0";
+                    break;
+
+                case "#2980B9":
+                    x = "#2980B9";
+                    break;
+
+                case "#BC8F8F":
+                    x = "#BC8F8F";
+                    break;
+
+                case "#2E4053":
+                    x = "#2E4053";
+                    break;
+
+                case "#17A589":
+                    x = "#17A589";
+                    break;
+
+                case "red":
+                    x = "red";
+                    break;
+
+                case "#239B56":
+                    x = "#239B56";
+                    break;
+
+                case "#D4AC0D":
+                    x = "#D4AC0D";
+                    break;
+
+                case "#B3B6B7":
+                    x = "#B3B6B7";
+                    break;
+
+                case "#0000ff ":
+                    x = "#0000ff ";
+                    break;
+
+                case "white":
+                    x = "white";
+                    break;
+            }
+            if (x == "white") y = 14;
+            else y = 2;
+
+        }
+
+        function draw() {
+            ctx.beginPath();
+            ctx.moveTo(prevX, prevY);
+            ctx.lineTo(currX, currY);
+            ctx.strokeStyle = x;
+            ctx.lineWidth = y;
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        function erase() {
+            var m = confirm("Are you sure? To Clear!");
+            if (m) {
+                ctx.clearRect(0, 0, w, h);
+                document.getElementById("canvasimg").style.display = "none";
+            }
+        }
+
+        function save() {
+            document.getElementById("canvasimg").style.border = "2px solid";
+            var dataURL = canvas.toDataURL();
+            document.getElementById("canvasimg").src = dataURL;
+            document.getElementById("canvasimg").style.display = "inline";
+        }
+
+        function findxy(res, e) {
+            if (res == 'down') {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+
+                flag = true;
+                dot_flag = true;
+                if (dot_flag) {
+                    ctx.beginPath();
+                    ctx.fillStyle = x;
+                    ctx.fillRect(currX, currY, 2, 2);
+                    ctx.closePath();
+                    dot_flag = false;
+                }
+            }
+            if (res == 'up' || res == "out") {
+                flag = false;
+            }
+            if (res == 'move') {
+                if (flag) {
+                    prevX = currX;
+                    prevY = currY;
+                    currX = e.clientX - canvas.offsetLeft;
+                    currY = e.clientY - canvas.offsetTop;
+                    draw();
+                }
+            }
+        }
+    </script>
+
+ </head>
+   
+    <body onload="init()">
+        <canvas id="can" width="400" height="400" style="position:absolute;top:17%;left:30%; background-color: white; border:2px dotted #17A589 ;"></canvas>
+        <div style="position:absolute;top:5%; left:30%;">Pick Color</div>
+         <div class="colorClsRow" title="brown" style=" top:9%;left:30%;background:#7B241C;" id="#7B241C" onclick="color(this)"></div>
+          <div class="colorClsRow" title="orange" style=" top:9%;left:32%;background:#CA6F1E;" id="#CA6F1E" onclick="color(this)"></div>
+         <div class="colorClsRow" title="purple" style=" top:9%;left:34%; background:#884EA0;" id="#884EA0" onclick="color(this)"></div>
+        <div class="colorClsRow" title="skyBlue" style="  top:9%;left:36%;background:#2980B9; " id="#2980B9" onclick="color(this)"></div>
+       <div class="colorClsRow" title="rosy" style=" top:9%;left:38%; background:#BC8F8F;" id="#BC8F8F" onclick="color(this)"></div>
+        <div class="colorClsRow" title= "slateGrey" style=" top:9%;left:40%;background:#2E4053  ;" id="#2E4053" onclick="color(this)"></div>
+        
+        <div class="colorClsRow" title="seaGreeen" style="top:12%;left:30%;background:#17A589;" id="#17A589" onclick="color(this)"></div>
+        <div class="colorClsRow" title="red" style="top:12%;left:32%; background:red;" id="red" onclick="color(this)"></div>
+        <div class="colorClsRow" title="green" style=" top:12%;left:34%;background:#239B56 ;" id="#239B56" onclick="color(this)"></div>
+        <div class="colorClsRow" title="mustard" style="top:12%;left:36%; background:#D4AC0D;" id="#D4AC0D" onclick="color(this)"></div>
+        <div class="colorClsRow" title="lightGrey" style="top:12%;left:38%;background:#a1a1b4 ;" id="#B3B6B7" onclick="color(this)"></div>
+        <div class="colorClsRow" title="blue" style="top:12%;left:40%;background:#0000ff ;" id="#0000ff " onclick="color(this)"></div>
+  
+       
+         
+
+         <img id="canvasimg" style="position:absolute;top:10%;left:52%; display:none;"/>&nbsp;
+        <div style="position:absolute;top:9%; left:44%;" >I'll help you to Erase!</div>
+         <div style=" cursor: pointer; position:absolute;top:12%;left:48%;width:50px;height:15px;">
+             <img src="../images/eraser.png"  id="white" onclick="color(this)"/></div>
+       
+        <input type="button" value="Clear Canvas" id="clr" onclick="erase()" style=" cursor: pointer;background-color:#12937a;color:silver ; position:absolute;top:45%;left:65%;width:96px;height:30px; ">
+        <button type="button" id="homeBtn" value="Go To HomePage" onclick="location.href='HomePage.html';"  onmouseover="" style=" cursor: pointer; position: absolute; top: 4%; left: 65%; width: 120px; height: 50px; color:silver; background-color: #12937a;" >Home Page</button>
+        
+         </body>
+    </html>
+
