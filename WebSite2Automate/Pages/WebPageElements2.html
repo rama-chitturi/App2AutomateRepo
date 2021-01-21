@@ -1,34 +1,37 @@
 ﻿<!--<!DOCTYPE html>-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head>
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-     <link rel="stylesheet" href="../StyleSheets/WebPage2_StyleSheet.css"/>
-   
-
-
+    <link rel="stylesheet" href="../StyleSheets/WebPage2_StyleSheet.css"/>
+      
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  
+    
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .ui-state-highlight {
+  background-color: #157c8e ;
+   border-color:white;
+  color:white;
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+      $(function () {
+          $("#draggable").draggable();
+          $("#droppable").droppable({
+              drop: function (event, ui) {
+                  $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p")
+                      .html("Dropped!");
+              }
+          });
+      });
+  </script>
     <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-            return false;
-        }
-
-        function drag(ev) {
-            var style = window.getComputedStyle(event.target, null);
-            var str = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY) + ',' + event.target.id;
-            event.dataTransfer.setData("Text", str);
-        }
-
-        function drop(ev) {
-            var offset = event.dataTransfer.getData("Text").split(',');
-            var dm = document.getElementById(offset[2]);
-            dm.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
-            dm.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
-            event.preventDefault();
-            return false;
-        }
-
-        function searchFunction() {
+            function searchFunction() {
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
@@ -121,6 +124,17 @@
                 }
             };
         }
+
+        function snackBarFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
 </script>
 </head>
 <body>
@@ -139,6 +153,17 @@
 </div>
      <i class="fa fa-question-circle" title="To Automate: All Side Hover menu Items Navigations" style="position: absolute; top: 15%; left: 16%;" > </i>
  </div>  
+
+<div style="position:absolute;top:2%; left:35%;">
+
+    <div  id="draggable" class="ui-widget-content">
+  <p>You can drag me</p>
+</div>
+ 
+<div  id="droppable" class="ui-widget-header">
+  <p>You can drop here</p>
+</div>
+ </div>
      
 <div>
 <h3 style="position:absolute;top:20%; left:10%;" >Click to open Modal</h3>
@@ -161,6 +186,14 @@
     <p id="ALertText" style="position:absolute;top:50%; left:10%;"></p>
         <i class="fa fa-question-circle" title="To Automate: Alert Ok and Cancel functionality" style="position: absolute; top: 39%; left: 23%;" > </i>
     </div>
+
+     <div>
+        <h3 style="position:absolute;top:52%; left:10%;" >Click for Snack Bar</h3>
+        <button onclick="snackBarFunction()" id="snackBarBtn"  style="position:absolute;top:60%; left:12%; width:130px;height:40px;" >Snackbar</button>
+         <div id="snackbar">Here is a Snack bar!</div>
+        <i class="fa fa-question-circle" title="To Automate:SnackBar/ Toast message visibility and Text" style="position: absolute; top: 55%; left: 23%;" > </i>
+    </div>
+
 <div>
     <h3 style="position:absolute;top:20%; left:30%;" >Hover to flip the card</h3>
  <i class="fa fa-question-circle" title="To Automate: Card flipping and get Screenshot" style="position: absolute; top: 23%; left: 45%;" > </i>
@@ -217,11 +250,11 @@
     </div>
     
 <div>
- <h3 style="position:absolute;top:60%; left:2%;" >Search bar</h3>
-  <i class="fa fa-question-circle" title="To Automate: Search functionality among Table data" style="position: absolute; top: 63%; left:10%;" > </i> 
-<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for Testing Type" title="Type in a name" style="position:absolute;top:68%; left:5%; height:5%; border-color:grey; border-width:2px"/>
+ <h3 style="position:absolute;top:65%; left:2%;" >Search bar</h3>
+  <i class="fa fa-question-circle" title="To Automate: Search functionality among Table data" style="position: absolute; top: 68%; left:10%;" > </i> 
+<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for Testing Type" title="Type in a name" style="position:absolute;top:73%; left:5%; height:5%; border-color:grey; border-width:2px"/>
 
-<table id="myTable" style="position:absolute;top:75%; left:10%;" >
+<table id="myTable" style="position:absolute;top:80%; left:10%;" >
   <tr>
     <th>Testing Type</th>
     <th>Tool</th>
