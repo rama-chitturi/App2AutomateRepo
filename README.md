@@ -8,4 +8,4 @@
 https://rama-chitturi.github.io/App2AutomateRepo/WebSite2Automate/Pages/HomePage.html
 
 **Resolution Compatibility**
-Only for Large view.
+- Only for Large view.
