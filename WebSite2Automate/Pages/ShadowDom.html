@@ -11,7 +11,9 @@
     <script>
         function ValidateEmail(inputEmail,inputName)
         {
-             var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+          
+           
+            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
            
             if ((inputEmail.value.match(mailformat)) && (inputName.value != "")) {
                 alert("Valid Credentails! Here you go!!");
@@ -38,6 +40,7 @@
         }
 
               function dropupMethod(clickedItem) {
+            
            
             if (clickedItem=="value1")
             {
@@ -59,8 +62,7 @@
 <body>
 
     <div>
-      <template shadowrootmode="open"> 
-        <div class="topnav">           
+        <div class="topnav">
   <a class="active" href="#">Basic Elements Page</a>
   <a href="AboutApp.html">About</a>
   <a href="HomePage.html">Back to Home</a>
@@ -70,7 +72,6 @@
     </div>
 
     <div>
-        <template shadowrootmode="open">
      <input id="userName" type="text" placeholder="Your prefered user name please!" style="position:absolute;top:15%;left:10%;width:200px;height:25px;"/>
      <input id="emailID" type="email" name="email" placeholder="Your mail Id please!"style="position:absolute;top:15%;left:28%;width:200px;height:25px;"/>
    <button type="submit" value="submit here" onclick="ValidateEmail(emailID,userName)" style="position:absolute;top:15%;left:45%; width:130px;height:35px;">Submit to display elements</button>
@@ -78,16 +79,15 @@
      </div>
    
     <div id="elementsDiv" style="display: none;">
+
     <div>
-        <template shadowrootmode="open">
       <label  style="position:absolute;top:25%; left:10%;">Radio buttons</label>
     <input id="Radio1"  style="position:absolute;top:25%; left:20%;" type="radio" name="Radio" value="RadioButton"/>
      <input id="Radio2" style="position:absolute;top:25%; left:22%;" type="radio" name="Radio" value="RadioButton2"/>
       <i class="fa fa-question-circle" title="To Automate: Group Radio button check" style="position: absolute; top: 25%; left: 25%;" > </i>
     </div>
 
-    <div>   
-         <template shadowrootmode="open">
+    <div>    
       <label style="position:absolute;top:35%; left:10%;">Checkboxes</label>
     <input id="Checkbox1" style="position:absolute;top:35%; left:20%;" type="checkbox" value="Check box" />
      <input id="Checkbox2"  style="position:absolute;top:35%; left:22%;"  type="checkbox" value="Check box2"/>
@@ -95,8 +95,7 @@
     </div>
 
     <div>
-        <template shadowrootmode="open">
-    <label style="position:absolute;top:45%; left:10%;" >Select your top most hobby from dropdown</label>        
+    <label style="position:absolute;top:45%; left:10%;" >Select your top most hobby from dropdown</label>
     <select id="Select1" class= "dropdown-cls" style="position:absolute;top:50%; left:20%;" >
         <option> Playing violin</option>
          <option> Gardening</option>
@@ -108,42 +107,34 @@
     </div>
 
     <div>
-        <template shadowrootmode="open">
      <label style="position:absolute;top:60%; left:10%;" >Upload file by clicking choose File</label>
     <input id="File1" style="position:absolute;top:65%; left:20%;"  type="file" value="Choose file"/>
           <i class="fa fa-question-circle" title="To Automate: Upload of various file format compatability" style="position: absolute; top: 60%; left: 28%;" > </i>
     </div>
 
    <div>
-       <template shadowrootmode="open">
       <label style="position:absolute;top:73%; left:10%;" >Hover to button to select items in dropup</label> 
    <div class="dropup" style="position:absolute;top:80%;left:20%;" >
   <button class="dropbtn">Dropup</button>
   <div class="dropup-content">
       <button  id= "value1"onclick="dropupMethod(this.id)">value 1</button>
-       <button  id= "value2"onclick="dropupMethod(this.id)">value 2</button> 
-  </div>       
+       <button  id= "value2"onclick="dropupMethod(this.id)">value 2</button>
+ 
+    </div>
+        
 </div>
         <label id="lbldropuptxt" style="position:absolute;top:93%;left:28%;"></label>
          <i class="fa fa-question-circle" title="To Auotmate: Dropup Item selection" style="position: absolute; top: 73%; left: 33%;" > </i>
 </div>
-      <div>
-    <label style="position:absolute;top:30%; left:55%;">Date Picker</label>
-   <input id="Test_DatetimeLocal" type="datetime-local" name="datepicker" style="position:absolute;top:35%;left:55%;width:200px;height:25px;"/> 
-    <i class="fa fa-question-circle" title="To Automate: Date picker" style="position: absolute; top: 30%; left: 63%;" > </i>
-    </div>
 
     <div>
-        <template shadowrootmode="open">
     <label style="position:absolute;top:45%; left:55%;">Click on link</label>
     <a id="advBtn" style="position:absolute;top:50%; left:55%;" href="WebPageElements2.html";" >Click me! I'll take you to Next page.</a>
           <i class="fa fa-question-circle" title="To Automate: Link Navigation and Page verification" style="position: absolute; top: 45%; left: 63%;" > </i>
     </div>
 <div>
-    <template shadowrootmode="open">
-     <a id="advBtn2" style="position:absolute;top:55%; left:55%;" href=""WebPageElements1.html";" >Click me! I'll take you to generic dom elements page</a>
+     <a id="advBtn2" style="position:absolute;top:55%; left:55%;" href="WebPageElements1.html";" >Click me! I'll take you to generic dom elements page</a>
      </div>
-
 
         </div> 
 </body>
