@@ -11,9 +11,7 @@
     <script>
         function ValidateEmail(inputEmail,inputName)
         {
-          
-           
-            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+             var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
            
             if ((inputEmail.value.match(mailformat)) && (inputName.value != "")) {
                 alert("Valid Credentails! Here you go!!");
@@ -40,7 +38,6 @@
         }
 
               function dropupMethod(clickedItem) {
-            
            
             if (clickedItem=="value1")
             {
@@ -63,8 +60,7 @@
 
     <div>
       <template shadowrootmode="open"> 
-        <div class="topnav">
-           
+        <div class="topnav">           
   <a class="active" href="#">Basic Elements Page</a>
   <a href="AboutApp.html">About</a>
   <a href="HomePage.html">Back to Home</a>
@@ -82,7 +78,6 @@
      </div>
    
     <div id="elementsDiv" style="display: none;">
-
     <div>
         <template shadowrootmode="open">
       <label  style="position:absolute;top:25%; left:10%;">Radio buttons</label>
@@ -100,8 +95,8 @@
     </div>
 
     <div>
-    <label style="position:absolute;top:45%; left:10%;" >Select your top most hobby from dropdown</label>
         <template shadowrootmode="open">
+    <label style="position:absolute;top:45%; left:10%;" >Select your top most hobby from dropdown</label>        
     <select id="Select1" class= "dropdown-cls" style="position:absolute;top:50%; left:20%;" >
         <option> Playing violin</option>
          <option> Gardening</option>
@@ -126,9 +121,8 @@
   <button class="dropbtn">Dropup</button>
   <div class="dropup-content">
       <button  id= "value1"onclick="dropupMethod(this.id)">value 1</button>
-       <button  id= "value2"onclick="dropupMethod(this.id)">value 2</button>
- 
-    </div       
+       <button  id= "value2"onclick="dropupMethod(this.id)">value 2</button> 
+  </div>       
 </div>
         <label id="lbldropuptxt" style="position:absolute;top:93%;left:28%;"></label>
          <i class="fa fa-question-circle" title="To Auotmate: Dropup Item selection" style="position: absolute; top: 73%; left: 33%;" > </i>
