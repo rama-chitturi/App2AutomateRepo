@@ -62,6 +62,7 @@
 <body>
 
     <div>
+        <template shadowrootmode="open">
         <div class="topnav">
   <a class="active" href="#">Basic Elements Page</a>
   <a href="AboutApp.html">About</a>
@@ -72,6 +73,7 @@
     </div>
 
     <div>
+        <template shadowrootmode="open">
      <input id="userName" type="text" placeholder="Your prefered user name please!" style="position:absolute;top:15%;left:10%;width:200px;height:25px;"/>
      <input id="emailID" type="email" name="email" placeholder="Your mail Id please!"style="position:absolute;top:15%;left:28%;width:200px;height:25px;"/>
    <button type="submit" value="submit here" onclick="ValidateEmail(emailID,userName)" style="position:absolute;top:15%;left:45%; width:130px;height:35px;">Submit to display elements</button>
@@ -79,7 +81,7 @@
      </div>
    
     <div id="elementsDiv" style="display: none;">
-
+<template shadowrootmode="open">
     <div>
       <label  style="position:absolute;top:25%; left:10%;">Radio buttons</label>
     <input id="Radio1"  style="position:absolute;top:25%; left:20%;" type="radio" name="Radio" value="RadioButton"/>
@@ -87,7 +89,8 @@
       <i class="fa fa-question-circle" title="To Automate: Group Radio button check" style="position: absolute; top: 25%; left: 25%;" > </i>
     </div>
 
-    <div>    
+    <div>   
+        <template shadowrootmode="open">
       <label style="position:absolute;top:35%; left:10%;">Checkboxes</label>
     <input id="Checkbox1" style="position:absolute;top:35%; left:20%;" type="checkbox" value="Check box" />
      <input id="Checkbox2"  style="position:absolute;top:35%; left:22%;"  type="checkbox" value="Check box2"/>
@@ -95,6 +98,7 @@
     </div>
 
     <div>
+        <template shadowrootmode="open">
     <label style="position:absolute;top:45%; left:10%;" >Select your top most hobby from dropdown</label>
     <select id="Select1" class= "dropdown-cls" style="position:absolute;top:50%; left:20%;" >
         <option> Playing violin</option>
@@ -107,12 +111,14 @@
     </div>
 
     <div>
+        <template shadowrootmode="open">
      <label style="position:absolute;top:60%; left:10%;" >Upload file by clicking choose File</label>
     <input id="File1" style="position:absolute;top:65%; left:20%;"  type="file" value="Choose file"/>
           <i class="fa fa-question-circle" title="To Automate: Upload of various file format compatability" style="position: absolute; top: 60%; left: 28%;" > </i>
     </div>
 
    <div>
+       <template shadowrootmode="open">
       <label style="position:absolute;top:73%; left:10%;" >Hover to button to select items in dropup</label> 
    <div class="dropup" style="position:absolute;top:80%;left:20%;" >
   <button class="dropbtn">Dropup</button>
@@ -128,6 +134,7 @@
 </div>
 
     <div>
+        <template shadowrootmode="open">
     <label style="position:absolute;top:45%; left:55%;">Click on link</label>
     <a id="advBtn" style="position:absolute;top:50%; left:55%;" href="WebPageElements2.html";" >Click me! I'll take you to Next page.</a>
           <i class="fa fa-question-circle" title="To Automate: Link Navigation and Page verification" style="position: absolute; top: 45%; left: 63%;" > </i>
