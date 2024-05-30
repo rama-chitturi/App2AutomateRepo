@@ -71,16 +71,19 @@
     </div>
 
     <div>
+        <div>
+            <template shadowrootmode="open">           
      <input id="userName" type="text" placeholder="Your prefered user name please!" style="position:absolute;top:15%;left:10%;width:200px;height:25px;"/>
      <input id="emailID" type="email" name="email" placeholder="Your mail Id please!"style="position:absolute;top:15%;left:28%;width:200px;height:25px;"/>
-   <button type="submit" value="submit here" onclick="ValidateEmail(emailID,userName)" style="position:absolute;top:15%;left:45%; width:130px;height:35px;">Submit to display elements</button>
+        </div>
+            <button type="submit" value="submit here" onclick="ValidateEmail(emailID,userName)" style="position:absolute;top:15%;left:45%; width:130px;height:35px;">Submit to display elements</button>
     <i class="fa fa-question-circle" title="To Automate: User Name & Email Validation" style="position: absolute; top: 16%; left: 56%;" > </i>
      </div>
    
     <div id="elementsDiv" style="display: block;">
 
     <div>
-        <template shadowrootmode="open">
+            <template shadowrootmode="open">
       <label  style="position:absolute;top:25%; left:10%;">Radio buttons</label>
     <input id="Radio1"  style="position:absolute;top:25%; left:20%;" type="radio" name="Radio" value="RadioButton"/>
      <input id="Radio2" style="position:absolute;top:25%; left:22%;" type="radio" name="Radio" value="RadioButton2"/>
@@ -116,7 +119,7 @@
     </div>
 
    <div>
-       <template shadowrootmode="open">
+      
       <label style="position:absolute;top:73%; left:10%;" >Hover to button to select items in dropup</label> 
    <div class="dropup" style="position:absolute;top:80%;left:20%;" >
   <button class="dropbtn">Dropup</button>
